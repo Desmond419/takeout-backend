@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.desmond.dao.UserRoleDao">
+    <resultMap id="BaseResultMap"  type="com.desmond.entity.UserRole" >
+        <result column="user_id" property="userId"  jdbcType="VARCHAR" />
+        <result column="role_id" property="roleId"  jdbcType="VARCHAR" />
+    </resultMap>
+
+    <insert id="save">
+        insert into user_role (user_id, role_id)
+        values (#{userId}, #{roleId});
+    </insert>
+</mapper>
