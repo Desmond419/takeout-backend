@@ -20,7 +20,7 @@
     </select>
 
     <insert id="save">
-        insert into user (id, username, password, phone, gender, user_type, create_time, update_time)
-        values (#{id}, #{username}, #{password}, #{phone}, #{gender}, #{userType}, now(), now());
+        insert into user (id, username, password, phone, gender, user_type, avatar, create_time, update_time)
+        values (#{id}, #{username}, #{password}, #{phone}, #{gender}, #{userType}, #{avatar}, now(), now());
     </insert>
 </mapper>
