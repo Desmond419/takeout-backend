@@ -6,8 +6,8 @@ import com.desmond.entity.Product;
 import java.util.List;
 
 public interface ProductService {
-    ResponseResult<List<Product>> getProductsByShopId(String shopId);
-    ResponseResult<String> addProduct(Product product);
-    ResponseResult<String> updateProduct(Product product);
-    ResponseResult<String> deleteProductById(String prodId);
+    List<Product> getProductsByShopId(String shopId);
+    void addProduct(Product product);
+    void updateProduct(Product product);
+    void deleteProductById(String prodId);
 }

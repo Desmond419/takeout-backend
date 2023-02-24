@@ -31,11 +31,11 @@ public class UserServiceImpl implements UserService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public ResponseResult<String> save(User user, String roleId) {
+    public void save(User user, String roleId) {
         try {
             User username = userDao.findByUsername(user.getUsername());
             if(!Objects.isNull(username)){
-                return new ResponseResult<>(HttpStatus.CONFLICT.value(), "用户名已存在，请重试");
+                throw new RuntimeException("用户名已存在，请重试");
             }
             user.setId(GenUUID.getUUID());
             user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -47,11 +47,35 @@ public class UserServiceImpl implements UserService {
                 userRole.setRoleId(roleId);
                 userRoleDao.save(userRole);
             }
-            return new ResponseResult<>(HttpStatus.CREATED.value(), "注册成功");
         } catch (Exception e) {
-            logger.error("用户注册异常: " + e.getMessage());
-            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "注册失败，请稍后再试");
+            logger.error("用户注册异常", e);
+            throw new RuntimeException("注册失败，请稍后再试");
         }
+    }
 
+    @Override
+    public void deleteUserById(String userId) {
+        if (Objects.isNull(userId)) {
+            throw new RuntimeException("用户id不得为空");
+        }
+        try {
+            userDao.deleteUserById(userId);
+        } catch (Exception e) {
+            logger.error("用户注销异常", e);
+            throw new RuntimeException("操作失败，请稍后再试");
+        }
+    }
+
+    @Override
+    public void updateUser(User user) {
+        if (Objects.isNull(user.getId())) {
+            throw new RuntimeException("用户id不得为空");
+        }
+        try {
+            userDao.updateUser(user);
+        } catch (Exception e) {
+            logger.error("用户更新异常", e);
+            throw new RuntimeException("操作失败，请稍后再试");
+        }
     }
 }

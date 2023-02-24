@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api")
 public class LoginController {
@@ -17,7 +19,7 @@ public class LoginController {
     private LoginService loginService;
 
     @PostMapping("/auth/login")
-    public ResponseResult<String> login(@RequestBody User user){
+    public ResponseResult<Map<String, String>> login(@RequestBody User user){
         return loginService.login(user);
     }
 

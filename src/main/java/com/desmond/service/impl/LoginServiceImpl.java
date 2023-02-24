@@ -15,7 +15,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class LoginServiceImpl implements LoginService {
@@ -26,7 +28,7 @@ public class LoginServiceImpl implements LoginService {
     private RedisCache redisCache;
 
     @Override
-    public ResponseResult<String> login(User user) {
+    public ResponseResult<Map<String, String>> login(User user) {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
         if (Objects.isNull(authenticate)) {
@@ -36,13 +38,13 @@ public class LoginServiceImpl implements LoginService {
         String userId = loginUser.getUser().getId();
         String jwt = JwtUtil.createJWT(userId);
 
-        // 将已登入的用户信息存入redis
-        redisCache.setCacheObject("LoginUser: " + userId, loginUser);
+        // 将已登入的用户信息存入redis，一小时后过期并自动删除缓存
+        redisCache.setCacheObject("LoginUser: " + userId, loginUser, 60, TimeUnit.MINUTES);
         HashMap<String, String> map = new HashMap<>();
         map.put("userId", userId);
         map.put("userType", loginUser.getUser().getUserType());
         map.put("token", jwt);
-        return new ResponseResult(HttpStatus.OK.value(), "登录成功", map);
+        return new ResponseResult<>(HttpStatus.OK.value(), "登录成功", map);
     }
 
     @Override

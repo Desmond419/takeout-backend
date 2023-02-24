@@ -16,11 +16,26 @@
     </resultMap>
 
     <select id="findByUsername"  resultMap="BaseResultMap">
-        select * from user where username=#{username}
+        select * from user where username = #{username}
     </select>
 
     <insert id="save">
         insert into user (id, username, password, phone, gender, user_type, avatar, create_time, update_time)
         values (#{id}, #{username}, #{password}, #{phone}, #{gender}, #{userType}, #{avatar}, now(), now());
     </insert>
+
+    <update id="updateUser">
+        update user set
+        username = #{username},
+        password = #{password},
+        phone = #{phone},
+        gender = #{gender},
+        avatar = #{avatar},
+        update_time = now()
+        where id = #{id}
+    </update>
+
+    <delete id="deleteUserById">
+        delete from user where id = #{id}
+    </delete>
 </mapper>

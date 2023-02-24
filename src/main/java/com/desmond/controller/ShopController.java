@@ -19,35 +19,62 @@ public class ShopController {
 
     @GetMapping("/user/shops")
     public ResponseResult<List<Shop>> getAllShop() {
-        return shopService.getAllShop();
+        try {
+            return new ResponseResult<>(HttpStatus.OK.value(), shopService.getAllShop());
+        } catch (Exception e) {
+            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+        }
     }
 
     @GetMapping("/user/shops/{category}")
     public ResponseResult<List<Shop>> getShopByCategory(@PathVariable("category") String category) {
-        return shopService.getShopByCategory(category);
+        try {
+            return new ResponseResult<>(HttpStatus.OK.value(), shopService.getShopByCategory(category));
+        } catch (Exception e) {
+            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+        }
     }
 
     @PreAuthorize("hasAnyAuthority('system:merchant', 'system:admin')")
     @GetMapping("/merchant/shops/{userId}")
     public ResponseResult<List<Shop>> getShopByUserId(@PathVariable("userId") String userId) {
-        return shopService.getShopByUserId(userId);
+        try {
+            return new ResponseResult<>(HttpStatus.OK.value(), shopService.getShopByUserId(userId));
+        } catch (Exception e) {
+            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+        }
     }
 
     @PreAuthorize("hasAnyAuthority('system:merchant', 'system:admin')")
     @PostMapping("/merchant/shop")
     public ResponseResult<String> addShop(@RequestBody Shop shop) {
-        return shopService.addShop(shop);
+        try {
+            shopService.addShop(shop);
+            return new ResponseResult<>(HttpStatus.CREATED.value(), "操作成功");
+        } catch (Exception e) {
+            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+        }
     }
 
     @PreAuthorize("hasAnyAuthority('system:merchant', 'system:admin')")
     @PutMapping("/merchant/shop")
     public ResponseResult<String> updateShopById(@RequestBody Shop shop) {
-        return shopService.updateShop(shop);
+        try {
+            shopService.updateShop(shop);
+            return new ResponseResult<>(HttpStatus.CREATED.value(), "操作成功");
+        } catch (Exception e) {
+            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+        }
     }
 
     @PreAuthorize("hasAnyAuthority('system:merchant', 'system:admin')")
     @DeleteMapping("/merchant/shop/{shopId}")
     public ResponseResult<String> deleteShopById(@PathVariable("shopId") String shopId) {
-        return shopService.deleteShopById(shopId);
+        try {
+            shopService.deleteShopById(shopId);
+            return new ResponseResult<>(HttpStatus.CREATED.value(), "操作成功");
+        } catch (Exception e) {
+            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+        }
     }
 }
