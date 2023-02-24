@@ -29,7 +29,7 @@ public class UserController {
      *
      * @param userId 用户id
      */
-    @PutMapping("/user/{userId}")
+    @DeleteMapping("/user/{userId}")
     public ResponseResult<String> deleteUserById(@PathVariable("userId") String userId) {
         try {
             userService.deleteUserById(userId);
