@@ -17,7 +17,7 @@ public class ShopController {
     @Autowired
     private ShopService shopService;
 
-    @GetMapping("/user/shops")
+    @GetMapping("/anonymous/shops")
     public ResponseResult<List<Shop>> getAllShop() {
         try {
             return new ResponseResult<>(HttpStatus.OK.value(), shopService.getAllShop());
@@ -26,7 +26,7 @@ public class ShopController {
         }
     }
 
-    @GetMapping("/user/shops/{category}")
+    @GetMapping("/anonymous/shops/{category}")
     public ResponseResult<List<Shop>> getShopByCategory(@PathVariable("category") String category) {
         try {
             return new ResponseResult<>(HttpStatus.OK.value(), shopService.getShopByCategory(category));

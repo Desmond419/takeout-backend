@@ -16,7 +16,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/user/products/{shopId}")
+    @GetMapping("/anonymous/products/{shopId}")
     public ResponseResult<List<Product>> getProductsByShopId(@PathVariable("shopId") String shopId) {
         try {
             return new ResponseResult<>(HttpStatus.OK.value(), productService.getProductsByShopId(shopId));

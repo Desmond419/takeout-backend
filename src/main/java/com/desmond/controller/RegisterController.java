@@ -15,7 +15,7 @@ public class RegisterController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/user/register")
+    @PostMapping("/anonymous/register")
     public ResponseResult<String> register(@RequestBody User user, @RequestParam(required = false) String roleId){
         try {
             userService.save(user, roleId);
