@@ -15,6 +15,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Objects;
 
 @Service
@@ -29,6 +32,19 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Override
+    public User findUserById(String id) {
+        if (Objects.isNull(id)) {
+            throw new RuntimeException("用户id不得为空");
+        }
+        try {
+            return userDao.findUserById(id);
+        } catch (Exception e) {
+            logger.error("获取用户异常", e);
+            throw new RuntimeException("获取失败，请稍后再试");
+        }
+    }
 
     @Override
     public void save(User user, String roleId) {
@@ -77,5 +93,33 @@ public class UserServiceImpl implements UserService {
             logger.error("用户更新异常", e);
             throw new RuntimeException("操作失败，请稍后再试");
         }
+    }
+
+    @Override
+    public boolean updateAvatar(String id, String avatar) {
+        if (Objects.isNull(id)) {
+            throw new RuntimeException("用户id不得为空");
+        }
+        try {
+            userDao.updateAvatar(id, avatar);
+            return true;
+        } catch (Exception e) {
+            logger.error("用户头像上传异常", e);
+            return false;
+        }
+    }
+
+    @Override
+    public byte[] getAvatarByUserId(String id) {
+        User user = userDao.findUserById(id);
+        if (user != null && user.getAvatar() != null) {
+            try {
+                return Files.readAllBytes(Paths.get(user.getAvatar()));
+            } catch (IOException e) {
+                logger.error("读取用户头像异常", e);
+                throw new RuntimeException("读取用户头像异常");
+            }
+        }
+        return null;
     }
 }
