@@ -44,7 +44,7 @@ public class LoginServiceImpl implements LoginService {
         map.put("userId", userId);
         map.put("userType", loginUser.getUser().getUserType());
         map.put("token", jwt);
-        return new ResponseResult<>(HttpStatus.OK.value(), "登录成功", map);
+        return ResponseResult.success("登录成功", map);
     }
 
     @Override
@@ -55,6 +55,6 @@ public class LoginServiceImpl implements LoginService {
 
         // 将对应的用户id从redis中删除
         redisCache.deleteObject("LoginUser: "+userid);
-        return new ResponseResult<>(HttpStatus.OK.value(), "退出成功");
+        return ResponseResult.success("退出成功");
     }
 }
