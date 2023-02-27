@@ -20,18 +20,18 @@ public class ShopController {
     @GetMapping("/anonymous/shops")
     public ResponseResult<List<Shop>> getAllShop() {
         try {
-            return new ResponseResult<>(HttpStatus.OK.value(), shopService.getAllShop());
+            return ResponseResult.success("操作成功", shopService.getAllShop());
         } catch (Exception e) {
-            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+            return ResponseResult.fail();
         }
     }
 
     @GetMapping("/anonymous/shops/{category}")
     public ResponseResult<List<Shop>> getShopByCategory(@PathVariable("category") String category) {
         try {
-            return new ResponseResult<>(HttpStatus.OK.value(), shopService.getShopByCategory(category));
+            return ResponseResult.success("操作成功", shopService.getShopByCategory(category));
         } catch (Exception e) {
-            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+            return ResponseResult.fail();
         }
     }
 
@@ -39,9 +39,9 @@ public class ShopController {
     @GetMapping("/merchant/shops/{userId}")
     public ResponseResult<List<Shop>> getShopByUserId(@PathVariable("userId") String userId) {
         try {
-            return new ResponseResult<>(HttpStatus.OK.value(), shopService.getShopByUserId(userId));
+            return ResponseResult.success("操作成功", shopService.getShopByUserId(userId));
         } catch (Exception e) {
-            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+            return ResponseResult.fail();
         }
     }
 
@@ -50,9 +50,9 @@ public class ShopController {
     public ResponseResult<String> addShop(@RequestBody Shop shop) {
         try {
             shopService.addShop(shop);
-            return new ResponseResult<>(HttpStatus.CREATED.value(), "操作成功");
+            return ResponseResult.success();
         } catch (Exception e) {
-            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+            return ResponseResult.fail();
         }
     }
 
@@ -61,9 +61,9 @@ public class ShopController {
     public ResponseResult<String> updateShopById(@RequestBody Shop shop) {
         try {
             shopService.updateShop(shop);
-            return new ResponseResult<>(HttpStatus.CREATED.value(), "操作成功");
+            return ResponseResult.success();
         } catch (Exception e) {
-            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+            return ResponseResult.fail();
         }
     }
 
@@ -72,9 +72,9 @@ public class ShopController {
     public ResponseResult<String> deleteShopById(@PathVariable("shopId") String shopId) {
         try {
             shopService.deleteShopById(shopId);
-            return new ResponseResult<>(HttpStatus.CREATED.value(), "操作成功");
+            return ResponseResult.success();
         } catch (Exception e) {
-            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+            return ResponseResult.fail();
         }
     }
 }

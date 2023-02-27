@@ -27,8 +27,8 @@ public class UserController {
     @PostMapping("/user/upload-avatar")
     public ResponseResult<String> uploadAvatar(@RequestParam("id") String id, @RequestParam("file") MultipartFile file) {
         User user = userService.findUserById(id);
-        if (user == null) {
-            return new ResponseResult<>(HttpStatus.BAD_REQUEST.value(), "用户不存在");
+        if (Objects.isNull(user)) {
+            return ResponseResult.fail(HttpStatus.BAD_REQUEST.value(), "用户不存在");
         }
 
         String filename = file.getOriginalFilename();
@@ -36,14 +36,13 @@ public class UserController {
         user.setAvatar(filepath);
         boolean result = userService.updateAvatar(user.getId(), user.getAvatar());
 
-        return result ? new ResponseResult<>(HttpStatus.OK.value(), "头像上传成功")
-                : new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "头像上传失败");
+        return result ? ResponseResult.success("头像上传成功") : ResponseResult.fail("头像上传失败");
     }
 
     @GetMapping("/user/getAvatar/{id}")
     public ResponseEntity<byte[]> getAvatar(@PathVariable("id") String id) {
         byte[] avatarBytes = userService.getAvatarByUserId(id);
-        if (avatarBytes == null) {
+        if (Objects.isNull(avatarBytes)) {
             return ResponseEntity.notFound().build();
         } else {
             HttpHeaders headers = new HttpHeaders();
@@ -52,13 +51,22 @@ public class UserController {
         }
     }
 
+    @GetMapping("/user/{id}")
+    public ResponseResult<User> getUserById(@PathVariable("id") String id) {
+        try {
+            return ResponseResult.success("操作成功", userService.findUserById(id));
+        } catch (Exception e) {
+            return ResponseResult.fail("服务器异常，请稍后再试");
+        }
+    }
+
     @PutMapping("/user")
     public ResponseResult<String> updateUserById(@RequestBody User user) {
         try {
             userService.updateUser(user);
-            return new ResponseResult<>(HttpStatus.OK.value(), "操作成功");
+            return ResponseResult.success();
         } catch (Exception e) {
-            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+            return ResponseResult.fail();
         }
     }
 
@@ -71,9 +79,9 @@ public class UserController {
     public ResponseResult<String> deleteUserById(@PathVariable("userId") String userId) {
         try {
             userService.deleteUserById(userId);
-            return new ResponseResult<>(HttpStatus.OK.value(), "账户注销成功");
+            return ResponseResult.success("账户注销成功");
         } catch (Exception e) {
-            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+            return ResponseResult.fail();
         }
     }
 }

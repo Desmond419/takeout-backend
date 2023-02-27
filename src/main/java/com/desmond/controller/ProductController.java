@@ -19,9 +19,9 @@ public class ProductController {
     @GetMapping("/anonymous/products/{shopId}")
     public ResponseResult<List<Product>> getProductsByShopId(@PathVariable("shopId") String shopId) {
         try {
-            return new ResponseResult<>(HttpStatus.OK.value(), productService.getProductsByShopId(shopId));
+            return ResponseResult.success("操作成功", productService.getProductsByShopId(shopId));
         } catch (Exception e) {
-            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+            return ResponseResult.fail();
         }
     }
 
@@ -30,9 +30,9 @@ public class ProductController {
     public ResponseResult<String> addProduct(@RequestBody Product product) {
         try {
             productService.addProduct(product);
-            return new ResponseResult<>(HttpStatus.CREATED.value(), "操作成功");
+            return ResponseResult.success();
         } catch (Exception e) {
-            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+            return ResponseResult.fail();
         }
     }
 
@@ -41,9 +41,9 @@ public class ProductController {
     public ResponseResult<String> updateProduct(@RequestBody Product product) {
         try {
             productService.updateProduct(product);
-            return new ResponseResult<>(HttpStatus.OK.value(), "操作成功");
+            return ResponseResult.success();
         } catch (Exception e) {
-            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+            return ResponseResult.fail();
         }
     }
 
@@ -52,9 +52,9 @@ public class ProductController {
     public ResponseResult<String> deleteProductById(@PathVariable("productId") String productId) {
         try {
             productService.deleteProductById(productId);
-            return new ResponseResult<>(HttpStatus.OK.value(), "操作成功");
+            return ResponseResult.success();
         } catch (Exception e) {
-            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试");
+            return ResponseResult.fail();
         }
     }
 }

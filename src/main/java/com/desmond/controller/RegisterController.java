@@ -19,9 +19,9 @@ public class RegisterController {
     public ResponseResult<String> register(@RequestBody User user, @RequestParam(required = false) String roleId){
         try {
             userService.save(user, roleId);
-            return new ResponseResult<>(HttpStatus.CREATED.value(), "注册成功");
+            return ResponseResult.success(HttpStatus.CREATED.value(), "注册成功");
         } catch (Exception e) {
-            return new ResponseResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器异常，请稍后再试", e.getMessage());
+            return ResponseResult.fail();
         }
     }
 }
