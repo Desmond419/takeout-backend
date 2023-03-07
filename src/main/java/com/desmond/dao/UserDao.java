@@ -10,6 +10,4 @@ public interface UserDao {
     void save(User user);
     void deleteUserById(String userId);
     void updateUser(User user);
-    void updateAvatar(String id, String avatar);
-    String getAvatarByUserId(String id);
 }

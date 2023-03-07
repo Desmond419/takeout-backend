@@ -33,8 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    private static final String[] NON_TOKEN_PROTECTED_URLS
-            = new String[] {"/api/**", "/anonymous/**"};
+    private static final String[] NON_TOKEN_PROTECTED_URLS = new String[] {"/api/anonymous/**"};
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

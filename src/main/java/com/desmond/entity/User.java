@@ -20,9 +20,6 @@ public class User {
 
     private String gender;
 
-    // 头像
-    private String avatar;
-
     // 状态 0:禁用，1:正常
     private Integer status;
 
@@ -36,14 +33,13 @@ public class User {
     public User() {
     }
 
-    public User(String id, String username, String password, String nickname, String phone, String gender, String avatar, Integer status, String userType, Date createTime, Date updateTime) {
+    public User(String id, String username, String password, String nickname, String phone, String gender, Integer status, String userType, Date createTime, Date updateTime) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.nickname = nickname;
         this.phone = phone;
         this.gender = gender;
-        this.avatar = avatar;
         this.status = status;
         this.userType = userType;
         this.createTime = createTime;
@@ -96,14 +92,6 @@ public class User {
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
     }
 
     public Integer getStatus() {

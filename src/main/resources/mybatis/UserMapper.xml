@@ -10,7 +10,7 @@
         <result column="phone" property="phone"  jdbcType="VARCHAR" />
         <result column="gender" property="gender"  jdbcType="VARCHAR" />
         <result column="user_type" property="userType"  jdbcType="VARCHAR" />
-        <result column="avatar" property="avatar"  jdbcType="VARCHAR" />
+        <result column="avatar" property="avatar"  jdbcType="BLOB" />
         <result column="create_time" property="createTime"  jdbcType="TIMESTAMP" />
         <result column="update_time" property="updateTime"  jdbcType="TIMESTAMP" />
     </resultMap>
@@ -41,15 +41,4 @@
     <delete id="deleteUserById">
         delete from user where id = #{id}
     </delete>
-
-    <update id="updateAvatar" parameterType="java.lang.String">
-        UPDATE user set
-        avatar = #{avatar},
-        update_time = now()
-        WHERE id = #{id}
-    </update>
-
-    <select id="getAvatarByUserId" resultType="java.lang.String">
-        SELECT avatar FROM user WHERE id = #{id}
-    </select>
 </mapper>

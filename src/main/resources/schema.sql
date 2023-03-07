@@ -16,7 +16,6 @@ CREATE TABLE user
   status                INTEGER DEFAULT 0 COMMENT '账号状态（0正常 1停用）',
   phone                 VARCHAR(255) COMMENT '手机号',
   gender                VARCHAR(255) COMMENT '用户性别（男，女，未知）',
-  avatar                VARCHAR(255) COMMENT '头像',
   user_type             VARCHAR(255) NOT NULL DEFAULT '管理员' COMMENT '用户类型（管理员，普通用户，骑手，商家）',
   create_time           TIMESTAMP COMMENT '创建时间',
   update_time           TIMESTAMP COMMENT '更新时间'
@@ -24,7 +23,8 @@ CREATE TABLE user
 INSERT INTO user(id, username, password, user_type)
 values
 ('1','admin', '$2a$10$/PDVtIkLEmjjR.3GrLWg6OwBnV7Z1xXgmR11O1m1K6AMcAeqPqrra', '管理员'), -- password: 123
-('2','merchant', '$2a$10$/PDVtIkLEmjjR.3GrLWg6OwBnV7Z1xXgmR11O1m1K6AMcAeqPqrra', '商家'); -- password: 123
+('2','merchant', '$2a$10$/PDVtIkLEmjjR.3GrLWg6OwBnV7Z1xXgmR11O1m1K6AMcAeqPqrra', '商家'), -- password: 123
+('3','rider', '$2a$10$/PDVtIkLEmjjR.3GrLWg6OwBnV7Z1xXgmR11O1m1K6AMcAeqPqrra', '骑手'); -- password: 123
 
 -- ----------------------------
 -- Table structure for user_role
@@ -39,7 +39,8 @@ CREATE TABLE user_role
 INSERT INTO user_role(user_id, role_id)
 values
 ('1','1'),
-('2','3');
+('2','3'),
+('3','2');
 
 -- ----------------------------
 -- Table structure for permission

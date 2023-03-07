@@ -1,6 +1,5 @@
 package com.desmond.service.impl;
 
-import com.desmond.common.ResponseResult;
 import com.desmond.dao.UserDao;
 import com.desmond.dao.UserRoleDao;
 import com.desmond.entity.User;
@@ -11,13 +10,9 @@ import io.netty.util.internal.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Objects;
 
 @Service
@@ -93,33 +88,5 @@ public class UserServiceImpl implements UserService {
             logger.error("用户更新异常", e);
             throw new RuntimeException("操作失败，请稍后再试");
         }
-    }
-
-    @Override
-    public boolean updateAvatar(String id, String avatar) {
-        if (Objects.isNull(id)) {
-            throw new RuntimeException("用户id不得为空");
-        }
-        try {
-            userDao.updateAvatar(id, avatar);
-            return true;
-        } catch (Exception e) {
-            logger.error("用户头像上传异常", e);
-            return false;
-        }
-    }
-
-    @Override
-    public byte[] getAvatarByUserId(String id) {
-        User user = userDao.findUserById(id);
-        if (user != null && user.getAvatar() != null) {
-            try {
-                return Files.readAllBytes(Paths.get(user.getAvatar()));
-            } catch (IOException e) {
-                logger.error("读取用户头像异常", e);
-                throw new RuntimeException("读取用户头像异常");
-            }
-        }
-        return null;
     }
 }
