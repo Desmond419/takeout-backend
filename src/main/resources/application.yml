@@ -26,6 +26,7 @@ spring:
 
 server:
   port: 8081
+#  address: 255.255.0.0
 
 mybatis:
   mapper-locations: classpath:mybatis/*.xml      # mybatis mapper映射文件位置

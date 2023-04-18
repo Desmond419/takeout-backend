@@ -1,4 +1,4 @@
-[36m2023-04-18 19:27:09[0;39m [32m[http-nio-8081-exec-4][0;39m [1;31mERROR[0;39m [1;35mo.a.c.c.C.[.[.[.[dispatcherServlet][0;39m - (Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+[36m2023-03-06 16:20:34[0;39m [32m[http-nio-8081-exec-7][0;39m [1;31mERROR[0;39m [1;35mo.a.c.c.C.[.[.[.[dispatcherServlet][0;39m - (Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
 java.lang.RuntimeException: token非法
 	at com.desmond.jwt.JwtAuthenticationTokenFilter.doFilterInternal(JwtAuthenticationTokenFilter.java:42)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)

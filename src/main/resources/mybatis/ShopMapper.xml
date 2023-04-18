@@ -33,7 +33,7 @@
 
     <insert id="addShop">
         insert into shop(id, user_id, name, rating, monthly_sale, estimated_delivery_time, description, category, photo, create_time, update_time)
-        values(#{id}, #{userId}, #{name}, #{rating}, #{monthlySale}, #{estimatedDeliveryTime}, #{description}, #{category}, #{photo} now(), now())
+        values(#{id}, #{userId}, #{name}, #{rating}, #{monthlySale}, #{estimatedDeliveryTime}, #{description}, #{category}, #{photo}, now(), now())
     </insert>
 
     <update id="updateShop">

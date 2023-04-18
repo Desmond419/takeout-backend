@@ -1,0 +1,18 @@
+[36m2023-03-07 15:34:34[0;39m [32m[main][0;39m [1;31mERROR[0;39m [1;35mo.s.b.d.LoggingFailureAnalysisReporter[0;39m - (
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field addressInfoService in com.desmond.controller.AddressInfoController required a bean of type 'com.desmond.service.AddressInfoService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.desmond.service.AddressInfoService' in your configuration.
+

@@ -1,0 +1,73 @@
+[36m2023-03-07 15:34:29[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (Starting TakeOutApplication using Java 19 on LAPTOP-0RD4O4D6 with PID 16768 (D:\User\Desktop\外卖APP\takeout-backend\target\classes started by User in D:\User\Desktop\外卖APP\takeout-backend)
+[36m2023-03-07 15:34:29[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (No active profile set, falling back to 1 default profile: "default"
+[36m2023-03-07 15:34:32[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.h.Http11NioProtocol[0;39m - (Initializing ProtocolHandler ["http-nio-8081"]
+[36m2023-03-07 15:34:32[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.StandardService[0;39m - (Starting service [Tomcat]
+[36m2023-03-07 15:34:32[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.StandardEngine[0;39m - (Starting Servlet engine: [Apache Tomcat/9.0.71]
+[36m2023-03-07 15:34:33[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.C.[.[.[/][0;39m - (Initializing Spring embedded WebApplicationContext
+[36m2023-03-07 15:34:34[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.StandardService[0;39m - (Stopping service [Tomcat]
+[36m2023-03-07 15:35:08[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (Starting TakeOutApplication using Java 19 on LAPTOP-0RD4O4D6 with PID 5076 (D:\User\Desktop\外卖APP\takeout-backend\target\classes started by User in D:\User\Desktop\外卖APP\takeout-backend)
+[36m2023-03-07 15:35:08[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (No active profile set, falling back to 1 default profile: "default"
+[36m2023-03-07 15:35:10[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.h.Http11NioProtocol[0;39m - (Initializing ProtocolHandler ["http-nio-8081"]
+[36m2023-03-07 15:35:10[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.StandardService[0;39m - (Starting service [Tomcat]
+[36m2023-03-07 15:35:10[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.StandardEngine[0;39m - (Starting Servlet engine: [Apache Tomcat/9.0.71]
+[36m2023-03-07 15:35:10[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.C.[.[.[/][0;39m - (Initializing Spring embedded WebApplicationContext
+[36m2023-03-07 15:35:11[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Starting...
+[36m2023-03-07 15:35:12[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Start completed.
+[36m2023-03-07 15:35:14[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.h.Http11NioProtocol[0;39m - (Starting ProtocolHandler ["http-nio-8081"]
+[36m2023-03-07 15:35:14[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (Started TakeOutApplication in 6.904 seconds (JVM running for 7.684)
+[36m2023-03-07 15:35:24[0;39m [32m[http-nio-8081-exec-4][0;39m [34mINFO [0;39m [1;35mo.a.c.c.C.[.[.[/][0;39m - (Initializing Spring DispatcherServlet 'dispatcherServlet'
+[36m2023-03-07 15:35:56[0;39m [32m[lettuce-nioEventLoop-4-1][0;39m [34mINFO [0;39m [1;35mi.l.c.p.CommandHandler[0;39m - (null Unexpected exception during request: java.net.SocketException: Connection reset
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:401)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:434)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+[36m2023-03-07 15:35:56[0;39m [32m[lettuce-eventExecutorLoop-1-4][0;39m [34mINFO [0;39m [1;35mi.l.c.p.ConnectionWatchdog[0;39m - (Reconnecting, last destination was localhost/127.0.0.1:6379
+[36m2023-03-07 15:35:58[0;39m [32m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Shutdown initiated...
+[36m2023-03-07 15:35:58[0;39m [32m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Shutdown completed.
+[36m2023-03-07 17:19:57[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (Starting TakeOutApplication using Java 19 on LAPTOP-0RD4O4D6 with PID 11808 (D:\User\Desktop\外卖APP\takeout-backend\target\classes started by User in D:\User\Desktop\外卖APP\takeout-backend)
+[36m2023-03-07 17:19:57[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (No active profile set, falling back to 1 default profile: "default"
+[36m2023-03-07 17:19:59[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.h.Http11NioProtocol[0;39m - (Initializing ProtocolHandler ["http-nio-8081"]
+[36m2023-03-07 17:19:59[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.StandardService[0;39m - (Starting service [Tomcat]
+[36m2023-03-07 17:19:59[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.StandardEngine[0;39m - (Starting Servlet engine: [Apache Tomcat/9.0.71]
+[36m2023-03-07 17:20:00[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.C.[.[.[/][0;39m - (Initializing Spring embedded WebApplicationContext
+[36m2023-03-07 17:20:00[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Starting...
+[36m2023-03-07 17:20:01[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Start completed.
+[36m2023-03-07 17:20:02[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.h.Http11NioProtocol[0;39m - (Starting ProtocolHandler ["http-nio-8081"]
+[36m2023-03-07 17:20:02[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (Started TakeOutApplication in 6.327 seconds (JVM running for 7.713)
+[36m2023-03-07 17:31:18[0;39m [32m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Shutdown initiated...
+[36m2023-03-07 17:31:18[0;39m [32m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Shutdown completed.
+[36m2023-03-07 17:52:14[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (Starting TakeOutApplication using Java 19 on LAPTOP-0RD4O4D6 with PID 21284 (D:\User\Desktop\外卖APP\takeout-backend\target\classes started by User in D:\User\Desktop\外卖APP\takeout-backend)
+[36m2023-03-07 17:52:14[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (No active profile set, falling back to 1 default profile: "default"
+[36m2023-03-07 17:52:16[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.h.Http11NioProtocol[0;39m - (Initializing ProtocolHandler ["http-nio-8081"]
+[36m2023-03-07 17:52:16[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.StandardService[0;39m - (Starting service [Tomcat]
+[36m2023-03-07 17:52:16[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.StandardEngine[0;39m - (Starting Servlet engine: [Apache Tomcat/9.0.71]
+[36m2023-03-07 17:52:16[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.C.[.[.[/][0;39m - (Initializing Spring embedded WebApplicationContext
+[36m2023-03-07 17:52:17[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Starting...
+[36m2023-03-07 17:52:17[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Start completed.
+[36m2023-03-07 17:52:19[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.h.Http11NioProtocol[0;39m - (Starting ProtocolHandler ["http-nio-8081"]
+[36m2023-03-07 17:52:19[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (Started TakeOutApplication in 5.223 seconds (JVM running for 5.933)
+[36m2023-03-07 17:59:30[0;39m [32m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Shutdown initiated...
+[36m2023-03-07 17:59:30[0;39m [32m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Shutdown completed.
+[36m2023-03-07 18:09:48[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (Starting TakeOutApplication using Java 19 on LAPTOP-0RD4O4D6 with PID 4724 (D:\User\Desktop\外卖APP\takeout-backend\target\classes started by User in D:\User\Desktop\外卖APP\takeout-backend)
+[36m2023-03-07 18:09:48[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (No active profile set, falling back to 1 default profile: "default"
+[36m2023-03-07 18:09:50[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.h.Http11NioProtocol[0;39m - (Initializing ProtocolHandler ["http-nio-8081"]
+[36m2023-03-07 18:09:50[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.StandardService[0;39m - (Starting service [Tomcat]
+[36m2023-03-07 18:09:50[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.StandardEngine[0;39m - (Starting Servlet engine: [Apache Tomcat/9.0.71]
+[36m2023-03-07 18:09:50[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.C.[.[.[/][0;39m - (Initializing Spring embedded WebApplicationContext
+[36m2023-03-07 18:09:51[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Starting...
+[36m2023-03-07 18:09:51[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Start completed.
+[36m2023-03-07 18:09:52[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.h.Http11NioProtocol[0;39m - (Starting ProtocolHandler ["http-nio-8081"]
+[36m2023-03-07 18:09:52[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (Started TakeOutApplication in 5.051 seconds (JVM running for 5.695)
+[36m2023-03-07 18:13:11[0;39m [32m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Shutdown initiated...
+[36m2023-03-07 18:13:11[0;39m [32m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Shutdown completed.

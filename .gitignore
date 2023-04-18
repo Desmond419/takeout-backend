@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+/javademoe/logs/sys-info.2023-02-08.log
+/javademoe/logs/sys-info.2023-02-07.log
+/javademoe/logs/sys-info.2023-02-01.log
+/javademoe/logs/sys-error.2023-02-07.log
+/javademoe/logs/sys-error.2023-02-01.log

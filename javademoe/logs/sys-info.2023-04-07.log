@@ -1,0 +1,26 @@
+[36m2023-04-07 23:14:38[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (Starting TakeOutApplication using Java 19 on LAPTOP-0RD4O4D6 with PID 8908 (D:\User\Desktop\外卖APP\takeout-backend\target\classes started by User in D:\User\Desktop\外卖APP\takeout-backend)
+[36m2023-04-07 23:14:38[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (No active profile set, falling back to 1 default profile: "default"
+[36m2023-04-07 23:14:40[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.h.Http11NioProtocol[0;39m - (Initializing ProtocolHandler ["http-nio-8081"]
+[36m2023-04-07 23:14:40[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.StandardService[0;39m - (Starting service [Tomcat]
+[36m2023-04-07 23:14:40[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.StandardEngine[0;39m - (Starting Servlet engine: [Apache Tomcat/9.0.71]
+[36m2023-04-07 23:14:40[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.C.[.[.[/][0;39m - (Initializing Spring embedded WebApplicationContext
+[36m2023-04-07 23:14:41[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Starting...
+[36m2023-04-07 23:14:41[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Start completed.
+[36m2023-04-07 23:14:43[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.h.Http11NioProtocol[0;39m - (Starting ProtocolHandler ["http-nio-8081"]
+[36m2023-04-07 23:14:43[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (Started TakeOutApplication in 6.201 seconds (JVM running for 7.215)
+[36m2023-04-07 23:15:42[0;39m [32m[http-nio-8081-exec-1][0;39m [34mINFO [0;39m [1;35mo.a.c.c.C.[.[.[/][0;39m - (Initializing Spring DispatcherServlet 'dispatcherServlet'
+[36m2023-04-07 23:21:59[0;39m [32m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Shutdown initiated...
+[36m2023-04-07 23:21:59[0;39m [32m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Shutdown completed.
+[36m2023-04-07 23:22:02[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (Starting TakeOutApplication using Java 19 on LAPTOP-0RD4O4D6 with PID 3776 (D:\User\Desktop\外卖APP\takeout-backend\target\classes started by User in D:\User\Desktop\外卖APP\takeout-backend)
+[36m2023-04-07 23:22:02[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (No active profile set, falling back to 1 default profile: "default"
+[36m2023-04-07 23:22:04[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.h.Http11NioProtocol[0;39m - (Initializing ProtocolHandler ["http-nio-8081"]
+[36m2023-04-07 23:22:04[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.StandardService[0;39m - (Starting service [Tomcat]
+[36m2023-04-07 23:22:04[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.StandardEngine[0;39m - (Starting Servlet engine: [Apache Tomcat/9.0.71]
+[36m2023-04-07 23:22:04[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.c.C.[.[.[/][0;39m - (Initializing Spring embedded WebApplicationContext
+[36m2023-04-07 23:22:05[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Starting...
+[36m2023-04-07 23:22:05[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Start completed.
+[36m2023-04-07 23:22:07[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mo.a.c.h.Http11NioProtocol[0;39m - (Starting ProtocolHandler ["http-nio-8081"]
+[36m2023-04-07 23:22:07[0;39m [32m[main][0;39m [34mINFO [0;39m [1;35mc.d.TakeOutApplication[0;39m - (Started TakeOutApplication in 5.17 seconds (JVM running for 5.898)
+[36m2023-04-07 23:22:08[0;39m [32m[http-nio-8081-exec-1][0;39m [34mINFO [0;39m [1;35mo.a.c.c.C.[.[.[/][0;39m - (Initializing Spring DispatcherServlet 'dispatcherServlet'
+[36m2023-04-07 23:28:26[0;39m [32m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Shutdown initiated...
+[36m2023-04-07 23:28:27[0;39m [32m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [1;35mc.z.h.HikariDataSource[0;39m - (HikariPool-1 - Shutdown completed.

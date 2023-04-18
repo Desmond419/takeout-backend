@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.desmond.dao.AddressInfoDao">
+    <resultMap id="BaseResultMap"  type="com.desmond.entity.AddressInfo" >
+        <result column="id" property="id"  jdbcType="VARCHAR" />
+        <result column="user_id" property="userId"  jdbcType="VARCHAR" />
+        <result column="contact_name" property="contactName"  jdbcType="VARCHAR" />
+        <result column="contact_gender" property="contactGender"  jdbcType="VARCHAR" />
+        <result column="phone" property="phone"  jdbcType="VARCHAR" />
+        <result column="postal_code" property="postalCode"  jdbcType="VARCHAR" />
+        <result column="province" property="province"  jdbcType="VARCHAR" />
+        <result column="city" property="city"  jdbcType="VARCHAR" />
+        <result column="details" property="details"  jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime"  jdbcType="TIMESTAMP" />
+        <result column="update_time" property="updateTime"  jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <select id="getAddressInfoByUserId"  resultMap="BaseResultMap">
+        select * from address_info where user_id = #{userId}
+    </select>
+
+    <insert id="addAddressInfo">
+        insert into address_info(id, user_id, contact_name, contact_gender, phone, postal_code, province, city, details, create_time, update_time)
+        values(#{id}, #{userId}, #{contactName}, #{contactGender}, #{phone}, #{postalCode}, #{province}, #{city}, #{details}, now(), now())
+    </insert>
+
+    <update id="updateAddressInfo">
+        update address_info set
+        contact_name = #{contactName},
+        contact_gender = #{contactGender},
+        phone = #{phone},
+        postal_code = #{postalCode},
+        province = #{province},
+        city = #{city},
+        details = #{details},
+        update_time = now()
+        where id = #{id} and user_id = #{userId}
+    </update>
+
+    <delete id="deleteAddressInfoById">
+        delete from address_info where id = #{id}
+    </delete>
+</mapper>
