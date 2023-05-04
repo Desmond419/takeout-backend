@@ -31,7 +31,7 @@ public class UserController {
             if (!(fileType.equals("jpg") || fileType.equals("jpeg"))) {
                 return ResponseResult.fail("图片仅支持jpg/jpeg格式");
             }
-            String newFileName = "avatar_" + userId + "." + fileType;
+            String newFileName = "avatar_" + userId + ".jpg";
             Path newPath = Paths.get(uploadDir + newFileName);
             // 删除旧头像
             String oldFileName = "avatar_" + userId + ".jpg";
@@ -42,7 +42,7 @@ public class UserController {
             // 保存新头像到服务器
             Files.write(newPath, file.getBytes());
             // 返回文件URL地址
-            String fileUrl = "/uploads/" + newFileName;
+            String fileUrl = "/static/" + newFileName;
             return ResponseResult.success("头像上传成功", fileUrl);
         } catch (IOException e) {
             e.printStackTrace();
@@ -58,7 +58,7 @@ public class UserController {
         if (!Files.exists(path)) {
             return ResponseResult.fail("头像文件不存在");
         }
-        String fileUrl = "/uploads/" + fileName;
+        String fileUrl = "/static/" + fileName;
         return ResponseResult.success(fileUrl);
     }
 
