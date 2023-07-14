@@ -3,6 +3,7 @@ package com.desmond.controller;
 import com.desmond.common.ResponseResult;
 import com.desmond.entity.Shop;
 import com.desmond.service.ShopService;
+import com.desmond.utils.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +21,8 @@ public class ShopController {
     public ResponseResult<List<Shop>> getAllShop() {
         try {
             return ResponseResult.success("操作成功", shopService.getAllShop());
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 
@@ -29,8 +30,8 @@ public class ShopController {
     public ResponseResult<List<Shop>> getShopByCategory(@PathVariable("category") String category) {
         try {
             return ResponseResult.success("操作成功", shopService.getShopByCategory(category));
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 
@@ -39,8 +40,8 @@ public class ShopController {
     public ResponseResult<List<Shop>> getShopByUserId(@PathVariable("userId") String userId) {
         try {
             return ResponseResult.success("操作成功", shopService.getShopByUserId(userId));
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 
@@ -50,8 +51,8 @@ public class ShopController {
         try {
             shopService.addShop(shop);
             return ResponseResult.success();
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 
@@ -61,8 +62,8 @@ public class ShopController {
         try {
             shopService.updateShop(shop);
             return ResponseResult.success();
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 
@@ -72,8 +73,8 @@ public class ShopController {
         try {
             shopService.deleteShopById(shopId);
             return ResponseResult.success();
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 }

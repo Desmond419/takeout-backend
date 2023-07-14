@@ -164,4 +164,19 @@ values
 ('3','2', '全麦培根三明治', '17.8', '培根，鸡蛋，生菜'),
 ('4','2', '鸡蛋火腿三明治', '20.9', '火腿，鸡蛋，生菜');
 
+-- ----------------------------
+-- Table structure for cart
+-- ----------------------------
+DROP TABLE IF EXISTS cart;
+CREATE TABLE cart
+(
+  id                        VARCHAR(255) NOT NULL PRIMARY KEY COMMENT '购物车id',
+  product_id                VARCHAR(255) COMMENT '商品id',
+  user_id                   VARCHAR(255) COMMENT '用户id',
+  quantity                  INTEGER COMMENT '商品数量',
+  create_time               TIMESTAMP COMMENT '创建时间'
+);
+INSERT INTO cart(id, product_id, user_id, quantity)
+values ('1','1','1', 3);
+
 SET FOREIGN_KEY_CHECKS = 1;

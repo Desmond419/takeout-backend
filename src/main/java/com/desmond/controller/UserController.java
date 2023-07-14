@@ -3,6 +3,7 @@ package com.desmond.controller;
 import com.desmond.common.ResponseResult;
 import com.desmond.entity.User;
 import com.desmond.service.UserService;
+import com.desmond.utils.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -66,8 +67,8 @@ public class UserController {
     public ResponseResult<User> getUserById(@PathVariable("id") String id) {
         try {
             return ResponseResult.success("操作成功", userService.findUserById(id));
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 
@@ -76,8 +77,8 @@ public class UserController {
         try {
             userService.updateUser(user);
             return ResponseResult.success();
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 
@@ -91,8 +92,8 @@ public class UserController {
         try {
             userService.deleteUserById(userId);
             return ResponseResult.success("账户注销成功");
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 }

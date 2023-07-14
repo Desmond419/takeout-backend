@@ -3,6 +3,7 @@ package com.desmond.controller;
 import com.desmond.common.ResponseResult;
 import com.desmond.entity.AddressInfo;
 import com.desmond.service.AddressInfoService;
+import com.desmond.utils.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +19,8 @@ public class AddressInfoController {
     public ResponseResult<List<AddressInfo>> getAddressByUserId(@PathVariable("userId") String userId) {
         try {
             return ResponseResult.success("操作成功", addressInfoService.getAddressInfoByUserId(userId));
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 
@@ -28,8 +29,8 @@ public class AddressInfoController {
         try {
             addressInfoService.addAddressInfo(addressInfo);
             return ResponseResult.success();
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 
@@ -38,8 +39,8 @@ public class AddressInfoController {
         try {
             addressInfoService.updateAddressInfo(addressInfo);
             return ResponseResult.success();
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 
@@ -53,8 +54,8 @@ public class AddressInfoController {
         try {
             addressInfoService.deleteAddressInfoById(id);
             return ResponseResult.success();
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 }

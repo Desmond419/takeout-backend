@@ -3,6 +3,7 @@ package com.desmond.controller;
 import com.desmond.common.ResponseResult;
 import com.desmond.entity.Product;
 import com.desmond.service.ProductService;
+import com.desmond.utils.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,8 @@ public class ProductController {
     public ResponseResult<List<Product>> getProductsByShopId(@PathVariable("shopId") String shopId) {
         try {
             return ResponseResult.success("操作成功", productService.getProductsByShopId(shopId));
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 
@@ -30,8 +31,8 @@ public class ProductController {
         try {
             productService.addProduct(product);
             return ResponseResult.success();
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 
@@ -41,8 +42,8 @@ public class ProductController {
         try {
             productService.updateProduct(product);
             return ResponseResult.success();
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 
@@ -52,8 +53,8 @@ public class ProductController {
         try {
             productService.deleteProductById(productId);
             return ResponseResult.success();
-        } catch (Exception e) {
-            return ResponseResult.fail();
+        } catch (BusinessException e) {
+            return ResponseResult.fail(e.getMessage());
         }
     }
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.desmond.dao.CartDao">
+
+    <resultMap id="BaseResultMap" type="com.desmond.entity.Cart">
+        <id property="id" column="id"/>
+        <result property="productId" column="product_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="quantity" column="quantity"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+    <select id="getCartsById" resultMap="BaseResultMap">
+        SELECT * FROM cart WHERE id = #{id}
+    </select>
+
+    <select id="getCartsByUserId" resultMap="BaseResultMap">
+        SELECT * FROM cart WHERE user_id = #{userId}
+    </select>
+
+    <insert id="insertCart">
+        INSERT INTO cart (id, product_id, user_id, quantity, create_time)
+        VALUES (#{id}, #{productId}, #{userId}, #{quantity}, now())
+    </insert>
+
+    <update id="updateCart">
+        UPDATE cart
+        SET product_id = #{productId},
+            user_id = #{userId},
+            quantity = #{quantity},
+            create_time = now()
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteCartById">
+        DELETE FROM cart WHERE id = #{id}
+    </delete>
+</mapper>
