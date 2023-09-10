@@ -14,7 +14,7 @@
 	<name>TakeOut</name>
 	<description>Take Out App Backend</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>19</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -88,8 +88,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>16</source>
-					<target>16</target>
+					<source>19</source>
+					<target>19</target>
 				</configuration>
 			</plugin>
 		</plugins>
